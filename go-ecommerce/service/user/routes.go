@@ -1,8 +1,11 @@
 package user
 
 import (
+	"encoding/json"
+	"go/types"
 	"net/http"
 
+	"gihtub.com/go-backend/go-ecommerce/repotypes"
 	"github.com/gorilla/mux"
 )
 
@@ -21,6 +24,13 @@ func (h *Handler) handleLogin(w http.ResponseWriter,r *http.Request) {
 
 func (h *Handler) handleRegister(w http.ResponseWriter,r *http.Request) {
 
+     var payload *repotypes.RegisterUserPayload
+
+	 if r.Body == nil {
+		
+	 }
+
+	 err := json.NewDecoder(r.Body).Decode(&payload);
 }
 
 func (h *Handler) RegisterRoutes(router *mux.Router) {
